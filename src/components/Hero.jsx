@@ -24,7 +24,7 @@ export default function Hero({ onOpenResume }) {
 
   return (
     <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
-      {/* Cinematic Red Ambient Backlight - exactly like the reference theme */}
+      {/* Cinematic Red Ambient Backlight */}
       <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[340px] bg-red-600/12 rounded-full blur-[140px] pointer-events-none -z-10" />
       <div className="absolute top-1/3 right-10 w-[380px] h-[260px] bg-rose-900/10 rounded-full blur-[120px] pointer-events-none -z-10" />
 
@@ -37,18 +37,29 @@ export default function Hero({ onOpenResume }) {
           {/* Main Hero Content (7 Cols) */}
           <div className="lg:col-span-7 space-y-6 text-left">
             
-            {/* Top Status & Editorial Marker */}
-            <div className="flex flex-wrap items-center gap-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#10080a] border border-red-500/30 text-xs text-red-400 font-medium shadow-sm shadow-red-950/40">
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_#ef4444]"></span>
-                <span>{profileData.status}</span>
+            {/* Top Status & Profile Avatar Badge */}
+            <div className="flex flex-wrap items-center gap-4">
+              <div className="flex items-center gap-3">
+                <div className="relative">
+                  <img
+                    src="/profile.jpg"
+                    alt={profileData.name}
+                    className="w-12 h-12 rounded-full object-cover object-top border-2 border-red-500/80 shadow-[0_0_15px_rgba(239,68,68,0.35)]"
+                  />
+                  <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 border-2 border-[#050507]"></span>
+                </div>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#10080a] border border-red-500/30 text-xs text-red-400 font-medium shadow-sm shadow-red-950/40">
+                  <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_#ef4444]"></span>
+                  <span>{profileData.status}</span>
+                </div>
               </div>
+
               <span className="text-[11px] font-mono text-zinc-400 tracking-wider hidden sm:inline">
                 // CLASS OF 2028 • SISTEC
               </span>
             </div>
 
-            {/* Main Headline styled like the reference mockup */}
+            {/* Main Headline */}
             <div className="space-y-2">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08]">
                 A Portfolio Built to Be{' '}
@@ -66,7 +77,7 @@ export default function Hero({ onOpenResume }) {
               Where code, systems architecture, and intelligent automation come together to build meaningful digital experiences. Third-year undergraduate at <span className="text-zinc-200 font-medium">Sagar Institute of Science and Technology</span>.
             </p>
 
-            {/* Quick Tech Badges (like the pill badges in reference: React, JavaScript, Figma, etc.) */}
+            {/* Quick Tech Badges */}
             <div className="flex flex-wrap items-center gap-2 pt-1">
               {['Python', 'C++', 'Java', 'JavaScript', 'React', 'SQL', 'Gemini AI'].map((tech) => (
                 <span
@@ -119,7 +130,7 @@ export default function Hero({ onOpenResume }) {
 
             {/* Editorial Footer Tagline */}
             <div className="pt-4 border-t border-zinc-900 text-[11px] font-mono text-zinc-400 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500 shadow-[0_0_6px_#ef4444]"></span>
               <span className="tracking-wider uppercase">Turning Ideas into Reliable Engineering Experiences.</span>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, BookOpen, Target, CheckCircle2, Award, Calendar, MapPin, Compass } from 'lucide-react';
+import { GraduationCap, BookOpen, Target, CheckCircle2, Award, MapPin, Compass } from 'lucide-react';
 import { profileData } from '../data/profile';
 
 export default function About() {
@@ -42,7 +42,7 @@ export default function About() {
                 Rather than treating languages as isolated silos, I leverage each tool where it excels: utilizing <strong className="text-zinc-200">C and C++</strong> for low-level memory efficiency and algorithmic problem solving, <strong className="text-zinc-200">Java and C#</strong> for object-oriented architectural patterns, <strong className="text-zinc-200">SQL</strong> for relational data integrity, and <strong className="text-zinc-200">Python & JavaScript (React/Node)</strong> for building end-to-end full-stack applications and integrating cutting-edge LLMs.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-zinc-850 border-zinc-800/80">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-zinc-800/80">
                 <div className="flex items-start gap-3">
                   <div className="p-2 rounded-lg bg-red-500/10 text-red-400 mt-0.5 border border-red-500/20">
                     <Target className="w-4 h-4" />
@@ -88,36 +88,56 @@ export default function About() {
             </div>
           </div>
 
-          {/* Education Card & Details (5 Cols) */}
+          {/* Education Card & Portrait Showcase (5 Cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-[#09090d] border border-zinc-800/90 rounded-2xl p-6 sm:p-7 relative overflow-hidden shadow-xl">
-              <div className="absolute top-0 right-0 transform translate-x-4 -translate-y-4 w-32 h-32 bg-red-600/8 rounded-full blur-2xl pointer-events-none" />
+            
+            {/* Developer Portrait Card - Styled like the reference aesthetic */}
+            <div className="relative rounded-2xl overflow-hidden border border-zinc-800 group shadow-2xl bg-[#09090d] hover:border-red-500/50 transition-all duration-300">
+              <div className="h-64 sm:h-72 overflow-hidden relative">
+                <img
+                  src="/profile.jpg"
+                  alt={profileData.name}
+                  className="w-full h-full object-cover object-center filter grayscale contrast-105 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#09090d] via-black/30 to-transparent" />
+                <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md border border-red-500/30 text-[10px] font-mono text-red-400 flex items-center gap-1.5 shadow-lg">
+                  <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                  <span>B.Tech Undergrad</span>
+                </div>
+              </div>
 
-              <div className="flex items-center justify-between mb-4">
-                <span className="p-2.5 rounded-xl bg-red-500/10 text-red-400 border border-red-500/25">
-                  <GraduationCap className="w-6 h-6" />
+              <div className="p-5 border-t border-zinc-800/80 bg-[#09090d]">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="text-base font-bold text-white tracking-tight">{profileData.name}</h4>
+                    <p className="text-xs text-red-400 font-mono mt-0.5">Sagar Institute of Science & Technology</p>
+                  </div>
+                  <span className="text-xs font-mono text-zinc-400 bg-[#0e0e14] px-2.5 py-1 rounded border border-zinc-800">
+                    Grad: 2028
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Education Degree Card */}
+            <div className="bg-[#09090d] border border-zinc-800/90 rounded-2xl p-6 relative overflow-hidden shadow-xl">
+              <div className="flex items-center justify-between mb-3">
+                <span className="p-2 rounded-xl bg-red-500/10 text-red-400 border border-red-500/25">
+                  <GraduationCap className="w-5 h-5" />
                 </span>
-                <span className="px-3 py-1 rounded-full text-xs font-mono bg-red-500/10 text-red-400 border border-red-500/30">
-                  Expected 2028
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-red-500/10 text-red-400 border border-red-500/30">
+                  {profileData.education.duration}
                 </span>
               </div>
 
-              <h3 className="text-xl font-bold text-white mb-1">
+              <h3 className="text-lg font-bold text-white mb-1">
                 {profileData.education.degree}
               </h3>
-              <p className="text-sm font-medium text-red-400 mb-4">
+              <p className="text-xs font-medium text-red-400 mb-3">
                 {profileData.education.institution}
               </p>
 
-              <div className="space-y-3 text-xs text-zinc-300 border-t border-zinc-800/80 pt-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-zinc-400 flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-zinc-400" />
-                    Academic Timeline
-                  </span>
-                  <span className="font-mono text-zinc-200">2024 – 2028</span>
-                </div>
-
+              <div className="space-y-2 text-xs text-zinc-300 border-t border-zinc-800/80 pt-3">
                 <div className="flex items-center justify-between">
                   <span className="text-zinc-400 flex items-center gap-1.5">
                     <Award className="w-3.5 h-3.5 text-zinc-400" />
@@ -133,11 +153,6 @@ export default function About() {
                   </span>
                   <span className="text-zinc-200">{profileData.links.location}</span>
                 </div>
-              </div>
-
-              <div className="mt-6 p-4 rounded-xl bg-[#0e0e14] border border-zinc-800 text-xs text-zinc-400 leading-relaxed">
-                <strong className="text-zinc-200 block mb-1">Career Objective:</strong>
-                Targeting summer/full-time Full Stack Software Engineering internships and entry-level developer roles where I can contribute to mission-critical codebases and scale high-performance web products.
               </div>
             </div>
 

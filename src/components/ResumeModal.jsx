@@ -53,13 +53,20 @@ export default function ResumeModal({ isOpen, onClose }) {
           {/* Header */}
           <div className="border-b border-zinc-800/80 pb-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div>
-                <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
-                  {profileData.name}
-                </h1>
-                <p className="text-red-400 font-medium text-sm md:text-base mt-1">
-                  {profileData.role} • {profileData.subRole}
-                </p>
+              <div className="flex items-center gap-4">
+                <img
+                  src="/profile.jpg"
+                  alt={profileData.name}
+                  className="w-16 h-16 rounded-xl object-cover object-center border border-zinc-700 shadow-md shrink-0"
+                />
+                <div>
+                  <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+                    {profileData.name}
+                  </h1>
+                  <p className="text-red-400 font-medium text-sm md:text-base mt-0.5">
+                    {profileData.role} • {profileData.subRole}
+                  </p>
+                </div>
               </div>
               <div className="text-xs md:text-sm text-zinc-400 space-y-1">
                 <div>{profileData.links.location}</div>
