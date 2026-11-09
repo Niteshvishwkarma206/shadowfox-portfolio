@@ -14,7 +14,7 @@ export default function App() {
   const activeSection = useScrollSpy(['home', 'about', 'skills', 'projects', 'contact'], 140);
 
   return (
-    <div className="min-h-screen bg-[#080b11] text-slate-200 flex flex-col font-sans selection:bg-blue-600/30 selection:text-white">
+    <div className="min-h-screen bg-[#050507] text-zinc-200 flex flex-col font-sans selection:bg-red-600/35 selection:text-white">
       {/* Fixed Navigation Bar */}
       <Navbar
         activeSection={activeSection}

@@ -24,47 +24,66 @@ export default function Hero({ onOpenResume }) {
 
   return (
     <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
-      {/* Subtle background radial ambient lights - restrained and refined */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none -z-10" />
-      <div className="absolute top-1/3 right-10 w-[350px] h-[250px] bg-slate-700/10 rounded-full blur-[100px] pointer-events-none -z-10" />
+      {/* Cinematic Red Ambient Backlight - exactly like the reference theme */}
+      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[340px] bg-red-600/12 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-1/3 right-10 w-[380px] h-[260px] bg-rose-900/10 rounded-full blur-[120px] pointer-events-none -z-10" />
+
+      {/* Subtle Background Geometric Grid Line */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f1f2708_1px,transparent_1px),linear-gradient(to_bottom,#1f1f2708_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Main Hero Content */}
+          {/* Main Hero Content (7 Cols) */}
           <div className="lg:col-span-7 space-y-6 text-left">
-            {/* Status Pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#101726] border border-blue-500/25 text-xs text-blue-300 font-medium shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>{profileData.status}</span>
+            
+            {/* Top Status & Editorial Marker */}
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#10080a] border border-red-500/30 text-xs text-red-400 font-medium shadow-sm shadow-red-950/40">
+                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_#ef4444]"></span>
+                <span>{profileData.status}</span>
+              </div>
+              <span className="text-[11px] font-mono text-zinc-400 tracking-wider hidden sm:inline">
+                // CLASS OF 2028 • SISTEC
+              </span>
             </div>
 
-            {/* Main Headline */}
+            {/* Main Headline styled like the reference mockup */}
             <div className="space-y-2">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
-                Engineering robust <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-blue-500">
-                  Full Stack Systems
-                </span> & AI.
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.08]">
+                A Portfolio Built to Be{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-400 to-red-600 drop-shadow-[0_0_25px_rgba(239,68,68,0.25)]">
+                  Explored.
+                </span>
               </h1>
-              <p className="text-lg sm:text-xl font-medium text-slate-300 pt-1">
-                {profileData.name} — B.Tech Undergrad (2024–2028)
+              <p className="text-base sm:text-lg font-medium text-zinc-300 pt-1">
+                Hi, I'm <strong className="text-white font-semibold">{profileData.name}</strong> — {profileData.role} & Engineer.
               </p>
             </div>
 
             {/* Description */}
-            <p className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl">
-              Pursuing Bachelor of Technology at{' '}
-              <span className="text-slate-200 font-medium">Sagar Institute of Science and Technology</span>. 
-              Bridging robust backend engineering, intuitive React interfaces, and intelligent automation with Python and Google Gemini.
+            <p className="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-2xl">
+              Where code, systems architecture, and intelligent automation come together to build meaningful digital experiences. Third-year undergraduate at <span className="text-zinc-200 font-medium">Sagar Institute of Science and Technology</span>.
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            {/* Quick Tech Badges (like the pill badges in reference: React, JavaScript, Figma, etc.) */}
+            <div className="flex flex-wrap items-center gap-2 pt-1">
+              {['Python', 'C++', 'Java', 'JavaScript', 'React', 'SQL', 'Gemini AI'].map((tech) => (
+                <span
+                  key={tech}
+                  className="px-3 py-1 text-xs font-medium rounded-full bg-[#0d0d12] text-zinc-300 border border-zinc-800 hover:border-red-500/40 hover:text-white transition-colors"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            {/* Primary Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3 pt-3">
               <a
                 href="#projects"
                 onClick={scrollToProjects}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 transition-all shadow-md shadow-blue-900/20 active:scale-95"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-white bg-red-600 hover:bg-red-500 transition-all shadow-lg shadow-red-950/60 hover:shadow-red-600/30 active:scale-95"
               >
                 <span>View Projects</span>
                 <ArrowDown className="w-4 h-4" />
@@ -73,15 +92,15 @@ export default function Hero({ onOpenResume }) {
               <a
                 href="#contact"
                 onClick={scrollToContact}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-slate-200 hover:text-white bg-[#0e1422] hover:bg-slate-800 border border-slate-700/80 transition-all active:scale-95"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-medium text-zinc-300 hover:text-white bg-[#0e0e14] hover:bg-zinc-900 border border-zinc-800 hover:border-zinc-700 transition-all active:scale-95"
               >
-                <Mail className="w-4 h-4 text-blue-400" />
+                <Mail className="w-4 h-4 text-red-400" />
                 <span>Contact Me</span>
               </a>
 
               <button
                 onClick={onOpenResume}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium text-slate-300 hover:text-white bg-slate-900/70 hover:bg-slate-800 border border-slate-800 transition-all"
+                className="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-medium text-zinc-400 hover:text-white bg-[#0a0a0e] hover:bg-zinc-900 border border-zinc-800 transition-all"
               >
                 <span>CV / Resume</span>
               </button>
@@ -90,7 +109,7 @@ export default function Hero({ onOpenResume }) {
                 href={profileData.links.github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:text-white bg-[#0e1422] hover:bg-slate-800 border border-slate-800 transition-all"
+                className="inline-flex items-center gap-2 p-3 rounded-xl text-sm font-medium text-zinc-400 hover:text-white bg-[#0e0e14] hover:bg-zinc-900 border border-zinc-800 transition-all"
                 title="GitHub Profile"
                 aria-label="GitHub Profile"
               >
@@ -98,106 +117,100 @@ export default function Hero({ onOpenResume }) {
               </a>
             </div>
 
-            {/* Core Languages Strip */}
-            <div className="pt-4 border-t border-slate-800/80">
-              <span className="text-xs font-mono text-slate-400 block mb-2">
-                Core Stack & Languages:
-              </span>
-              <div className="flex flex-wrap items-center gap-2">
-                {['Python', 'C++', 'Java', 'JavaScript', 'SQL', 'React', 'C#', 'C'].map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-xs font-mono px-2.5 py-1 rounded bg-[#101625] text-slate-300 border border-slate-800 hover:border-slate-700 transition-colors"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+            {/* Editorial Footer Tagline */}
+            <div className="pt-4 border-t border-zinc-900 text-[11px] font-mono text-zinc-400 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+              <span className="tracking-wider uppercase">Turning Ideas into Reliable Engineering Experiences.</span>
             </div>
           </div>
 
-          {/* Interactive Engineering Snapshot Card */}
+          {/* Cinematic Interactive Snapshot Card (5 Cols) */}
           <div className="lg:col-span-5">
-            <div className="relative rounded-2xl bg-[#0b101a] border border-slate-800 shadow-xl overflow-hidden group">
+            <div className="relative rounded-2xl bg-[#09090d] border border-zinc-800 shadow-2xl overflow-hidden group hover:border-red-500/40 transition-all duration-300">
+              
+              {/* Card Ambient Glow Accent */}
+              <div className="absolute top-0 right-0 w-36 h-36 bg-red-600/10 rounded-full blur-2xl pointer-events-none group-hover:bg-red-600/20 transition-all" />
+
               {/* Terminal Title Bar */}
-              <div className="flex items-center justify-between px-4 py-3 bg-[#080d16] border-b border-slate-800/90 text-xs font-mono text-slate-400">
+              <div className="flex items-center justify-between px-4 py-3 bg-[#060608] border-b border-zinc-800/90 text-xs font-mono text-zinc-400">
                 <div className="flex items-center gap-2">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-zinc-700"></span>
                   </div>
-                  <span className="ml-2 text-slate-300">developer.profile.ts</span>
+                  <span className="ml-2 text-zinc-300">nitesh.profile.ts</span>
                 </div>
-                <span className="text-[10px] text-blue-400/90 font-mono">v3.0.0</span>
+                <span className="text-[10px] text-red-400 font-mono tracking-widest">// 01 CORE</span>
               </div>
 
-              {/* Code / Architecture Inspection Block */}
-              <div className="p-5 font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto select-none">
-                <div className="text-slate-400">// Academic & Development Snapshot</div>
+              {/* Code Snippet */}
+              <div className="p-5 font-mono text-xs leading-relaxed text-zinc-300 overflow-x-auto select-none">
+                <div className="text-zinc-400">// Verified Full Stack Profile</div>
                 <div>
-                  <span className="text-blue-400">const</span>{' '}
-                  <span className="text-sky-300">developer</span> = &#123;
+                  <span className="text-red-400">const</span>{' '}
+                  <span className="text-zinc-100">engineer</span> = &#123;
                 </div>
                 <div className="pl-4">
-                  <span className="text-slate-400">name:</span>{' '}
-                  <span className="text-emerald-300">"{profileData.name}"</span>,
+                  <span className="text-zinc-400">name:</span>{' '}
+                  <span className="text-rose-300">"{profileData.name}"</span>,
                 </div>
                 <div className="pl-4">
-                  <span className="text-slate-400">institution:</span>{' '}
-                  <span className="text-emerald-300">"Sagar Inst. of Science & Tech"</span>,
+                  <span className="text-zinc-400">institution:</span>{' '}
+                  <span className="text-zinc-200">"Sagar Inst. of Science & Tech"</span>,
                 </div>
                 <div className="pl-4">
-                  <span className="text-slate-400">graduation:</span>{' '}
-                  <span className="text-amber-300">2028</span>,
+                  <span className="text-zinc-400">graduation:</span>{' '}
+                  <span className="text-red-400 font-semibold">2028</span>,
                 </div>
                 <div className="pl-4">
-                  <span className="text-slate-400">role:</span>{' '}
-                  <span className="text-emerald-300">"Full Stack Developer"</span>,
+                  <span className="text-zinc-400">role:</span>{' '}
+                  <span className="text-rose-300">"Full Stack Developer"</span>,
                 </div>
                 <div className="pl-4">
-                  <span className="text-slate-400">activeProjects:</span> [
+                  <span className="text-zinc-400">flagshipProjects:</span> [
                 </div>
-                <div className="pl-8 text-sky-300">
-                  <span className="text-emerald-300">"CivicConnect"</span>, <span className="text-slate-400">// Citizen reporting</span>
+                <div className="pl-8 text-zinc-300">
+                  <span className="text-red-400">"CivicConnect"</span>, <span className="text-zinc-400">// Citizen reporting</span>
                 </div>
-                <div className="pl-8 text-sky-300">
-                  <span className="text-emerald-300">"SERA"</span> <span className="text-slate-400">// Gemini Windows Assistant</span>
+                <div className="pl-8 text-zinc-300">
+                  <span className="text-red-400">"SERA"</span> <span className="text-zinc-400">// Gemini Windows Assistant</span>
                 </div>
                 <div className="pl-4">],</div>
                 <div className="pl-4">
-                  <span className="text-slate-400">primaryToolchain:</span> [
+                  <span className="text-zinc-400">coreStack:</span> [
                 </div>
-                <div className="pl-8 text-slate-300">
-                  "Python", "C++", "Java", "JS", "SQL", "React"
+                <div className="pl-8 text-zinc-300">
+                  "Python", "C++", "Java", "JS", "React", "SQL"
                 </div>
                 <div className="pl-4">],</div>
                 <div className="pl-4">
-                  <span className="text-slate-400">seeking:</span>{' '}
-                  <span className="text-emerald-300">"Internships & SDE Roles"</span>
+                  <span className="text-zinc-400">status:</span>{' '}
+                  <span className="text-rose-400">"Open for Internships"</span>
                 </div>
                 <div>&#125;;</div>
 
-                <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
-                  <span className="flex items-center gap-1.5 text-blue-400">
+                <div className="mt-4 pt-3 border-t border-zinc-800/80 flex items-center justify-between text-[11px] text-zinc-400">
+                  <span className="flex items-center gap-1.5 text-red-400 font-mono">
                     <Terminal className="w-3.5 h-3.5" />
-                    <span>status: ready_for_deployment</span>
+                    <span>status: active_and_building</span>
                   </span>
-                  <span className="text-slate-400">Node / Py3 / C++20</span>
+                  <span className="text-zinc-400">Node / Py3 / C++20</span>
                 </div>
               </div>
 
               {/* Bottom Quick Metric strip */}
-              <div className="grid grid-cols-2 border-t border-slate-800 bg-[#090d16]/70 divide-x divide-slate-800">
-                <div className="p-3 text-center">
+              <div className="grid grid-cols-2 border-t border-zinc-800 bg-[#060608]/80 divide-x divide-zinc-800 text-center">
+                <div className="p-3">
                   <div className="text-sm font-bold text-white">3rd Year B.Tech</div>
-                  <div className="text-[11px] text-slate-400">SISTec, Bhopal</div>
+                  <div className="text-[11px] text-zinc-400">SISTec (2024–2028)</div>
                 </div>
-                <div className="p-3 text-center">
-                  <div className="text-sm font-bold text-blue-400">2 Flagship Apps</div>
-                  <div className="text-[11px] text-slate-400">Web & Gemini AI</div>
+                <div className="p-3">
+                  <div className="text-sm font-bold text-red-400">2 Flagship Apps</div>
+                  <div className="text-[11px] text-zinc-400">CivicConnect & SERA</div>
                 </div>
               </div>
+
             </div>
           </div>
 
